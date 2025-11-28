@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import Navbar from './components/Navbar'; // <--- Importar aqui
+import Navbar from './components/Navbar';
+import Hero from './sections/Hero'; // <--- Importando a Hero
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    // Verifica preferência do sistema ou salvo no localStorage (opcional)
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dark';
     }
@@ -23,30 +23,21 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen w-full relative overflow-x-hidden transition-colors duration-300">
+    <div className="min-h-screen w-full relative overflow-x-hidden bg-ryz-light dark:bg-ryz-dark transition-colors duration-300">
       
-      {/* Navbar Ativa */}
       <Navbar toggleTheme={toggleTheme} isDarkMode={theme === 'dark'} />
       
-      <main className="pt-20"> {/* Padding top para o conteúdo não ficar embaixo da navbar fixa */}
-        
-        {/* Placeholder Temporário da Hero Section */}
-        <section id="hero" className="h-screen flex flex-col items-center justify-center text-center px-4">
-           <h1 className="font-clash text-5xl md:text-7xl font-bold mb-4">
-             O ÁPICE DO SEU <span className="text-ryz-blue">NEGÓCIO</span>
-           </h1>
-           <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl">
-             Desenvolvimento Web, Sistemas e IA com a RYZ.
-           </p>
-        </section>
+      <main>
+        {/* Seção Hero Real */}
+        <Hero />
 
-        {/* Secões Vazias para testar o Scroll */}
-        <section id="sobre" className="h-screen bg-gray-100 dark:bg-black/20 flex items-center justify-center">
-          <h2 className="text-4xl font-clash">Sobre Nós</h2>
+        {/* Espaços temporários para as próximas seções */}
+        <section id="sobre" className="min-h-screen flex items-center justify-center border-t border-gray-200 dark:border-white/5">
+          <h2 className="text-4xl font-clash dark:text-white">Em breve: Sobre Nós (Founders)</h2>
         </section>
         
-        <section id="processo" className="h-screen flex items-center justify-center">
-          <h2 className="text-4xl font-clash">Processo</h2>
+        <section id="precos" className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-black/20">
+          <h2 className="text-4xl font-clash dark:text-white">Em breve: Preços</h2>
         </section>
 
       </main>
