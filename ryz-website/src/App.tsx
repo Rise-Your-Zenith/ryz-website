@@ -2,21 +2,25 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import Founders from './sections/Founders';
-import Process from './components/Process'; 
+import Process from './components/Process';
+import Pricing from './components/Pricing';
+import Contact from './sections/Contact'; // <--- Importação Final
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
+    // Verifica preferência salva ou do sistema
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) return savedTheme;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   });
 
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [theme]);
 
@@ -32,15 +36,11 @@ function App() {
       <main>
         <Hero />
         <Founders />
-        
-        {/* Adicionando o Processo aqui */}
         <Process />
-
-        {/* Próxima etapa: Preços */}
-        <section id="precos" className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-black/20">
-          <h2 className="text-4xl font-clash dark:text-white">Em breve: Tabela de Preços</h2>
-        </section>
+        <Pricing />
+        <Contact />
       </main>
+      
     </div>
   );
 }
