@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import Hero from './sections/Hero'; // <--- Importando a Hero
+import Hero from './sections/Hero';
+import Founders from './sections/Founders'; // <--- Importar aqui
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -28,18 +29,15 @@ function App() {
       <Navbar toggleTheme={toggleTheme} isDarkMode={theme === 'dark'} />
       
       <main>
-        {/* Seção Hero Real */}
         <Hero />
-
-        {/* Espaços temporários para as próximas seções */}
-        <section id="sobre" className="min-h-screen flex items-center justify-center border-t border-gray-200 dark:border-white/5">
-          <h2 className="text-4xl font-clash dark:text-white">Em breve: Sobre Nós (Founders)</h2>
-        </section>
         
-        <section id="precos" className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-black/20">
-          <h2 className="text-4xl font-clash dark:text-white">Em breve: Preços</h2>
-        </section>
+        {/* Seção Sobre Nós adicionada aqui */}
+        <Founders />
 
+        {/* Placeholder para a próxima seção */}
+        <section id="processo" className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-black/20">
+          <h2 className="text-4xl font-clash dark:text-white">Em breve: Processo & Timeline</h2>
+        </section>
       </main>
     </div>
   );

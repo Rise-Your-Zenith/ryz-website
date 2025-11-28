@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Menu, X } from 'lucide-react';
-import Foto-light from '../assets/logo-light.png';
-import Foto-dark from '../assets/logo-dark.png;'
+
+// Importação das Imagens (Nomes corrigidos para CamelCase)
+import LogoLight from '../assets/logo-light.png';
+import LogoDark from '../assets/logo-dark.png';
 
 interface NavbarProps {
   toggleTheme: () => void;
@@ -11,6 +13,7 @@ interface NavbarProps {
 
 const Navbar = ({ toggleTheme, isDarkMode }: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   const navLinks = [
     { name: 'Home', href: '#hero' },
     { name: 'Sobre', href: '#sobre' },
@@ -27,12 +30,20 @@ const Navbar = ({ toggleTheme, isDarkMode }: NavbarProps) => {
       >
         <div className="flex justify-between items-center">
           
-          {/* LOGO */}
-          <a href="#" className="font-clash text-2xl font-bold tracking-wider hover:opacity-80 transition-opacity pl-2">
+          {/* LOGO - Agora com Imagens */}
+          <a href="#" className="flex items-center pl-2 hover:opacity-80 transition-opacity">
              {isDarkMode ? (
-               <span className="text-white">LOGO DARK<span className="text-ryz-blue">.</span></span>
+               <img 
+                 src={LogoDark} 
+                 alt="RYZ Logo" 
+                 className="h-8 w-auto object-contain" 
+               />
              ) : (
-               <span className="text-ryz-dark">LOGO LIGHT<span className="text-ryz-blue">.</span></span>
+               <img 
+                 src={LogoLight} 
+                 alt="RYZ Logo" 
+                 className="h-8 w-auto object-contain" 
+               />
              )}
           </a>
 
@@ -60,7 +71,7 @@ const Navbar = ({ toggleTheme, isDarkMode }: NavbarProps) => {
               {isDarkMode ? <Sun size={18} className="text-yellow-400" /> : <Moon size={18} className="text-ryz-dark" />}
             </button>
 
-            {/* CTA Button "Match IA" style */}
+            {/* CTA Button */}
             <a href="#contato">
               <button className="bg-ryz-blue hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-ryz-blue/30 transition-all hover:scale-105 text-sm">
                 Contato

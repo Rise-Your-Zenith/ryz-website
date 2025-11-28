@@ -37,7 +37,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="font-clash text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
         >
-          <span className="block text-gray-900 dark:text-white">Eleve SUA EMPRESA</span>
+          <span className="block text-gray-900 dark:text-white">ELEVE A SUA EMPRESA</span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-ryz-blue to-purple-500">
             AO ÁPICE
           </span>
@@ -50,7 +50,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          A <span className="font-bold text-ryz-blue">RYZ</span> cria sites de alta performance, sistemas complexos e soluções de Inteligência Artificial para colocar o seu negócio no topo do mercado.
+        <span className="font-bold text-ryz-blue"></span>Criamos sites de alta performance, sistemas complexos e soluções modernas para colocar o seu negócio no topo do mercado.
         </motion.p>
 
         {/* Botões de Ação */}
@@ -70,12 +70,6 @@ const Hero = () => {
             </button>
           </a>
 
-          <a href="#portfolio">
-            <button className="px-8 py-4 bg-transparent border border-gray-300 dark:border-white/20 text-gray-700 dark:text-white rounded-xl font-medium text-lg hover:bg-gray-100 dark:hover:bg-white/5 transition-all flex items-center gap-2">
-              <Code2 size={20} />
-              Ver Portfólio
-            </button>
-          </a>
         </motion.div>
 
       </div>
