@@ -8,38 +8,25 @@ interface NavbarProps {
 }
 
 const Navbar = ({ toggleTheme, isDarkMode }: NavbarProps) => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Efeito para detectar o scroll e ativar o modo "Glass"
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navLinks = [
+    { name: 'Home', href: '#hero' },
     { name: 'Sobre', href: '#sobre' },
     { name: 'Processo', href: '#processo' },
     { name: 'Preços', href: '#precos' },
-    { name: 'Portfólio', href: '#portfolio' },
   ];
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b
-        ${isScrolled 
-          ? 'bg-white/70 dark:bg-ryz-dark/70 backdrop-blur-md border-gray-200/20 dark:border-white/10 shadow-lg' 
-          : 'bg-transparent border-transparent py-4'
-        }`}
+        className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 
+        bg-white/80 dark:bg-ryz-dark/80 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl shadow-black/5 dark:shadow-black/20
+        rounded-full px-6 py-3 transition-all duration-300"
       >
-        <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+        <div className="flex justify-between items-center">
           
           {/* LOGO */}
-          <a href="#" className="font-clash text-3xl font-bold tracking-wider hover:scale-105 transition-transform">
+          <a href="#" className="font-clash text-2xl font-bold tracking-wider hover:opacity-80 transition-opacity pl-2">
              {isDarkMode ? (
                <span className="text-white">RYZ<span className="text-ryz-blue">.</span></span>
              ) : (
@@ -47,80 +34,80 @@ const Navbar = ({ toggleTheme, isDarkMode }: NavbarProps) => {
              )}
           </a>
 
-          {/* DESKTOP MENU */}
-          <div className="hidden md:flex items-center space-x-8 font-medium">
+          {/* DESKTOP MENU - Centralizado */}
+          <div className="hidden md:flex items-center gap-8 font-medium">
             {navLinks.map((item) => (
               <a 
                 key={item.name} 
                 href={item.href}
-                className="relative group text-gray-700 dark:text-gray-300 hover:text-ryz-blue dark:hover:text-white transition-colors text-sm uppercase tracking-wide"
+                className="text-gray-600 dark:text-gray-300 hover:text-ryz-blue dark:hover:text-white transition-colors text-sm"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-ryz-blue transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
-            
-            {/* Divisor vertical */}
-            <div className="h-6 w-px bg-gray-300 dark:bg-white/20"></div>
+          </div>
 
+          {/* RIGHT SIDE (Theme + CTA) */}
+          <div className="hidden md:flex items-center gap-4 pr-1">
+            
             {/* Botão de Tema */}
             <button 
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
-              aria-label="Alternar Tema"
+              className="p-2 rounded-full border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
             >
-              {isDarkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-ryz-dark" />}
+              {isDarkMode ? <Sun size={18} className="text-yellow-400" /> : <Moon size={18} className="text-ryz-dark" />}
             </button>
 
-            {/* CTA Button */}
+            {/* CTA Button "Match IA" style */}
             <a href="#contato">
-              <button className="bg-ryz-blue hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-bold shadow-lg shadow-ryz-blue/20 transition-all hover:shadow-ryz-blue/40 transform hover:-translate-y-0.5 text-sm uppercase">
+              <button className="bg-ryz-blue hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-ryz-blue/30 transition-all hover:scale-105 text-sm">
                 Contato
               </button>
             </a>
           </div>
 
           {/* MOBILE TOGGLES */}
-          <div className="md:hidden flex items-center gap-4">
-             <button onClick={toggleTheme} className="p-2">
+          <div className="md:hidden flex items-center gap-3">
+             <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10">
               {isDarkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-ryz-dark" />}
             </button>
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-1"
+              className="p-2"
             >
               {isMobileMenuOpen 
-                ? <X className="dark:text-white text-ryz-dark" size={28} /> 
-                : <Menu className="dark:text-white text-ryz-dark" size={28} />
+                ? <X className="dark:text-white text-ryz-dark" size={24} /> 
+                : <Menu className="dark:text-white text-ryz-dark" size={24} />
               }
             </button>
           </div>
         </div>
       </nav>
 
-      {/* MOBILE MENU FULLSCREEN OVERLAY */}
+      {/* MOBILE MENU DROPDOWN */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 md:hidden bg-white/95 dark:bg-ryz-dark/95 backdrop-blur-xl pt-24 px-6 flex flex-col items-center space-y-8"
+            className="fixed top-24 left-1/2 -translate-x-1/2 w-[90%] max-w-sm z-40 bg-white dark:bg-ryz-dark border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl p-6 flex flex-col items-center space-y-4"
           >
              {navLinks.map((item) => (
                 <a 
                   key={item.name} 
                   href={item.href} 
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-clash font-bold dark:text-white text-ryz-dark hover:text-ryz-blue transition-colors"
+                  className="w-full text-center py-2 text-lg font-medium dark:text-white text-gray-800 hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors"
                 >
                   {item.name}
                 </a>
              ))}
-             <a href="#contato" onClick={() => setIsMobileMenuOpen(false)} className="w-full max-w-xs">
-                <button className="w-full bg-ryz-blue text-white py-4 rounded-xl font-bold text-lg shadow-xl shadow-ryz-blue/30">
-                  Entrar em Contato
+             <div className="w-full h-px bg-gray-100 dark:bg-white/10 my-2"></div>
+             <a href="#contato" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
+                <button className="w-full bg-ryz-blue text-white py-3 rounded-xl font-bold shadow-lg shadow-ryz-blue/20">
+                  Contato
                 </button>
              </a>
           </motion.div>
