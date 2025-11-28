@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
-import Founders from './sections/Founders'; // <--- Importar aqui
+import Founders from './sections/Founders';
+import Process from './components/Process'; 
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -30,13 +31,14 @@ function App() {
       
       <main>
         <Hero />
-        
-        {/* Seção Sobre Nós adicionada aqui */}
         <Founders />
+        
+        {/* Adicionando o Processo aqui */}
+        <Process />
 
-        {/* Placeholder para a próxima seção */}
-        <section id="processo" className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-black/20">
-          <h2 className="text-4xl font-clash dark:text-white">Em breve: Processo & Timeline</h2>
+        {/* Próxima etapa: Preços */}
+        <section id="precos" className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-black/20">
+          <h2 className="text-4xl font-clash dark:text-white">Em breve: Tabela de Preços</h2>
         </section>
       </main>
     </div>
