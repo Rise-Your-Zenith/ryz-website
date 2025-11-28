@@ -4,19 +4,19 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // Habilita o dark mode manual (via botão)
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         ryz: {
-          dark: '#293542',   // Fundo Darkmode
-          blue: '#3241EE',   // Azul Principal
-          light: '#F3F4F6',  // Fundo Lightmode (um cinza bem suave)
+          dark: '#293542',
+          blue: '#3241EE',
+          light: '#F3F4F6',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // Texto corrido
-        clash: ['Clash Display', 'sans-serif'], // Títulos
+        sans: ['Inter', 'sans-serif'],
+        clash: ['Clash Display', 'sans-serif'],
       },
       backgroundImage: {
         'glass-gradient': 'linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
