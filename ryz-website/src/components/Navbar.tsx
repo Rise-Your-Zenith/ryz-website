@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Menu, X } from 'lucide-react';
+import Foto-light from '../assets/logo-light.png';
+import Foto-dark from '../assets/logo-dark.png;'
 
 interface NavbarProps {
   toggleTheme: () => void;
@@ -28,9 +30,9 @@ const Navbar = ({ toggleTheme, isDarkMode }: NavbarProps) => {
           {/* LOGO */}
           <a href="#" className="font-clash text-2xl font-bold tracking-wider hover:opacity-80 transition-opacity pl-2">
              {isDarkMode ? (
-               <span className="text-white">RYZ<span className="text-ryz-blue">.</span></span>
+               <span className="text-white">LOGO DARK<span className="text-ryz-blue">.</span></span>
              ) : (
-               <span className="text-ryz-dark">RYZ<span className="text-ryz-blue">.</span></span>
+               <span className="text-ryz-dark">LOGO LIGHT<span className="text-ryz-blue">.</span></span>
              )}
           </a>
 

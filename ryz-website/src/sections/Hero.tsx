@@ -37,7 +37,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="font-clash text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
         >
-          <span className="block text-gray-900 dark:text-white">ELEVE SUA EMPRESA</span>
+          <span className="block text-gray-900 dark:text-white">Eleve SUA EMPRESA</span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-ryz-blue to-purple-500">
             AO ÁPICE
           </span>
