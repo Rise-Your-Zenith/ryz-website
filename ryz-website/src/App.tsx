@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
+import Benefits from './sections/Benefits'; // <--- Importar aqui
 import Founders from './sections/Founders';
 import Process from './components/Process';
+import Portfolio from './sections/Portfolio';
 import Pricing from './components/Pricing';
-import Contact from './sections/Contact'; // <--- Importação Final
+import Contact from './sections/Contact';
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    // Verifica preferência salva ou do sistema
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) return savedTheme;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -35,8 +36,13 @@ function App() {
       
       <main>
         <Hero />
+        
+        {/* Inserido aqui: Primeiro conscientizamos o cliente */}
+        <Benefits />
+        
         <Founders />
         <Process />
+        <Portfolio />
         <Pricing />
         <Contact />
       </main>

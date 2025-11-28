@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Code2, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   return (

@@ -1,102 +1,98 @@
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, MapPin, Send } from 'lucide-react';
+import { Mail, MessageCircle, MapPin, ArrowRight, Instagram, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <footer id="contato" className="relative bg-white dark:bg-[#0f1216] pt-24 pb-12 transition-colors duration-300">
+    <footer id="contato" className="relative pt-32 pb-10 overflow-hidden">
       
-      {/* Divisor Gradient Superior */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ryz-blue/50 to-transparent"></div>
-
-      <div className="max-w-7xl mx-auto px-6">
+      {/* --- BACKGROUND GRADIENTE (A Mágica acontece aqui) --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Light Mode: Do cinza claro (da seção anterior) para um azul muito suave */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ryz-light via-white to-ryz-blue/10 dark:hidden"></div>
         
-        <div className="grid lg:grid-cols-2 gap-16 mb-24">
+        {/* Dark Mode: Do cinza escuro (da seção anterior) para um preto azulado profundo */}
+        <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-ryz-dark via-[#1a1f2e] to-[#050505]"></div>
+        
+        {/* Glow final no rodapé para dar profundidade */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-ryz-blue/20 dark:bg-ryz-blue/10 blur-[100px] rounded-t-full"></div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+        
+        {/* Headline */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <h2 className="font-clash text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
+            Pronto para o <span className="text-transparent bg-clip-text bg-gradient-to-r from-ryz-blue to-cyan-500">Próximo Nível?</span>
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Sem burocracia. Fale diretamente com o Henrique ou o Raul e vamos tirar sua ideia do papel hoje mesmo.
+          </p>
+        </motion.div>
+
+        {/* CARTÃO DE CTA WHATSAPP (Vidro Fosco Colorido) */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="relative group bg-gradient-to-br from-ryz-blue to-blue-700 rounded-3xl p-10 md:p-14 shadow-[0_20px_50px_-12px_rgba(50,65,238,0.5)] overflow-hidden mb-20 hover:scale-[1.02] transition-transform duration-300"
+        >
+          {/* Efeitos dentro do card */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-white/30 transition-colors"></div>
+          <div className="absolute bottom-0 left-0 w-40 h-40 bg-black/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
           
-          {/* LADO ESQUERDO: Informações e CTA */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="font-clash text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
-              Vamos construir o <br />
-              <span className="text-ryz-blue">futuro</span> juntos?
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-md leading-relaxed">
-              Seu projeto merece a excelência técnica e a visão estratégica da RYZ. Entre em contato e receba uma proposta personalizada em até 24h.
-            </p>
-
-            <div className="space-y-6">
-              <a href="mailto:contato@ryz.com" className="group flex items-center gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-ryz-blue/50 transition-all">
-                <div className="w-12 h-12 rounded-full bg-ryz-blue/10 flex items-center justify-center text-ryz-blue group-hover:scale-110 transition-transform">
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Fale conosco via E-mail</p>
-                  <p className="text-lg font-bold text-gray-900 dark:text-white">contato@ryz.com</p>
-                </div>
-              </a>
-
-              <a href="https://wa.me/" className="group flex items-center gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-ryz-blue/50 transition-all">
-                <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 group-hover:scale-110 transition-transform">
-                  <MessageSquare size={24} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">WhatsApp Comercial</p>
-                  <p className="text-lg font-bold text-gray-900 dark:text-white">+55 (11) 99999-9999</p>
-                </div>
-              </a>
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-left text-white">
+              <h3 className="text-3xl font-clash font-bold mb-2">WhatsApp Comercial</h3>
+              <p className="text-blue-100 text-lg opacity-90">Resposta rápida e atendimento personalizado.</p>
             </div>
-          </motion.div>
+            
+            <a 
+              href="https://wa.me/5511999999999" // Coloque seu número aqui
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-ryz-blue px-8 py-4 rounded-xl font-bold text-lg shadow-lg flex items-center gap-3 hover:bg-gray-50 transition-colors"
+            >
+              <MessageCircle size={24} />
+              Iniciar Conversa
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </motion.div>
 
-          {/* LADO DIREITO: Formulário Profissional */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gray-50 dark:bg-[#1a202c]/50 p-8 md:p-10 rounded-3xl border border-gray-200 dark:border-white/5 backdrop-blur-sm"
-          >
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Seu Nome</label>
-                  <input type="text" placeholder="João Silva" className="w-full bg-white dark:bg-black/20 border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ryz-blue/50 transition-all" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Empresa</label>
-                  <input type="text" placeholder="Sua Empresa Ltda" className="w-full bg-white dark:bg-black/20 border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ryz-blue/50 transition-all" />
-                </div>
-              </div>
+        {/* Links Secundários (Redes e Email) */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 mb-12">
+          
+          <a href="mailto:contato@ryz.com" className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-ryz-blue dark:hover:text-white transition-colors group">
+            <div className="p-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full group-hover:border-ryz-blue/50 transition-colors">
+              <Mail size={20} />
+            </div>
+            <span className="font-medium">contato@ryz.com</span>
+          </a>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">E-mail Corporativo</label>
-                <input type="email" placeholder="joao@empresa.com" className="w-full bg-white dark:bg-black/20 border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ryz-blue/50 transition-all" />
-              </div>
+          <div className="flex gap-4">
+             <a href="#" className="p-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-gray-600 dark:text-gray-400 hover:text-pink-600 hover:border-pink-600/30 transition-all">
+               <Instagram size={20} />
+             </a>
+             <a href="#" className="p-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-blue-600/30 transition-all">
+               <Linkedin size={20} />
+             </a>
+          </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Como podemos ajudar?</label>
-                <textarea rows={4} placeholder="Descreva brevemente seu projeto..." className="w-full bg-white dark:bg-black/20 border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ryz-blue/50 transition-all resize-none"></textarea>
-              </div>
-
-              <button type="submit" className="w-full bg-ryz-blue hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-ryz-blue/20 transition-all hover:scale-[1.02] flex items-center justify-center gap-2">
-                Enviar Solicitação <Send size={20} />
-              </button>
-            </form>
-          </motion.div>
         </div>
 
-        {/* FOOTER BASE */}
-        <div className="pt-8 border-t border-gray-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-          <p>&copy; {new Date().getFullYear()} RYZ Agency. Todos os direitos reservados.</p>
+        {/* Footer Bottom (Discreto) */}
+        <div className="border-t border-gray-200/50 dark:border-white/5 pt-8 pb-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-500 gap-4">
+          <p>&copy; {new Date().getFullYear()} RYZ | Rise Your Zenith.</p>
           
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-ryz-blue transition-colors">Termos de Uso</a>
-            <a href="#" className="hover:text-ryz-blue transition-colors">Política de Privacidade</a>
-            <div className="flex items-center gap-1">
-               <MapPin size={14} /> São Paulo, BR
-            </div>
+          <div className="flex items-center gap-2">
+             <MapPin size={14} />
+             <span>São Paulo, Brasil</span>
           </div>
         </div>
 
