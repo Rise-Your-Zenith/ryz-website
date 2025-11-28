@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+
+// Aqui importaremos os componentes depois
+// import Navbar from './components/Navbar';
+// import Hero from './sections/Hero';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Lógica do Tema (Dark/Light)
+  const [theme, setTheme] = useState(() => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  });
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen w-full relative overflow-x-hidden">
+      {/* Navbar vai aqui */}
+      {/* <Navbar toggleTheme={toggleTheme} isDarkMode={theme === 'dark'} /> */}
+      
+      <main>
+        {/* Seções vão aqui */}
+        <div className="h-screen flex items-center justify-center">
+           <h1 className="font-clash text-5xl font-bold">
+             O ÁPICE DO SEU <span className="text-ryz-blue">NEGÓCIO</span>
+           </h1>
+        </div>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
