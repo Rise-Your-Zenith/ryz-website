@@ -7,6 +7,7 @@ import Process from './components/Process';
 import Portfolio from './sections/Portfolio';
 import Pricing from './components/Pricing';
 import Contact from './sections/Contact';
+import WhatsAppBtn from './components/WhatsAppBtn';
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -46,6 +47,7 @@ function App() {
         <Pricing />
         <Contact />
       </main>
+      <WhatsAppBtn />
       
     </div>
   );
