@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, MessageCircle, MapPin, ArrowRight, Instagram, Linkedin } from 'lucide-react';
+import { Mail, MessageCircle, MapPin, ArrowRight, Instagram } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -30,7 +30,7 @@ const Contact = () => {
             Pronto para o <span className="text-transparent bg-clip-text bg-gradient-to-r from-ryz-blue to-cyan-500">Próximo Nível?</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Sem burocracia. Fale diretamente com o Henrique ou o Raul e vamos tirar sua ideia do papel hoje mesmo.
+            Sem burocracia. Fale diretamente conosco e vamos tirar sua ideia do papel hoje mesmo.
           </p>
         </motion.div>
 
@@ -53,35 +53,33 @@ const Contact = () => {
             </div>
             
             <a 
-              href="https://wa.me/5511999999999" // Coloque seu número aqui
+              href="https://wa.me/5519983600437" // Coloque seu número aqui
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-white text-ryz-blue px-8 py-4 rounded-xl font-bold text-lg shadow-lg flex items-center gap-3 hover:bg-gray-50 transition-colors"
             >
               <MessageCircle size={24} />
-              Iniciar Conversa
+              Orçamento
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </motion.div>
 
         {/* Links Secundários (Redes e Email) */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 mb-12">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-2 mb-12">
           
-          <a href="mailto:contato@ryz.com" className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-ryz-blue dark:hover:text-white transition-colors group">
+          <a href="mailto:ryzsuporte@outlook.com" className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-ryz-blue dark:hover:text-white transition-colors group">
             <div className="p-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full group-hover:border-ryz-blue/50 transition-colors">
               <Mail size={20} />
             </div>
-            <span className="font-medium">contato@ryz.com</span>
+            <span className="font-medium"></span>
           </a>
 
-          <div className="flex gap-4">
+          <div className="flex gap-2">
              <a href="#" className="p-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-gray-600 dark:text-gray-400 hover:text-pink-600 hover:border-pink-600/30 transition-all">
                <Instagram size={20} />
              </a>
-             <a href="#" className="p-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-blue-600/30 transition-all">
-               <Linkedin size={20} />
-             </a>
+
           </div>
 
         </div>

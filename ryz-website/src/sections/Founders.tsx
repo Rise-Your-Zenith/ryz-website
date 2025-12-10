@@ -6,18 +6,18 @@ import RaulImg from '../assets/raul.png'
 const founders = [
   {
     name: 'Henrique Martins',
-    role: 'Co-Founder & Tech Lead',
+    role: 'Co-Founder & Software Developer',
     description: 'Especialista em transformar visões de negócio em arquiteturas digitais escaláveis. Focado em inovação e estratégias de crescimento.',
     image: HenriqueImg, 
-    tags: ['Business', 'Fullstack', 'Strategy'],
-    social: { linkedin: '#', instagram: '#' }
+    tags: ['Business', 'Fullstack', 'IA'],
+    social: { linkedin: '#', instagram: 'mxrtinssz' }
   },
   {
     name: 'Raul Gomes',
-    role: 'Co-Founder & AI Developer',
+    role: 'Co-Founder & Designer',
     description: 'Mente analítica por trás das nossas soluções de IA. Desenvolve sistemas inteligentes que automatizam e otimizam processos complexos.',
     image: RaulImg,
-    tags: ['AI Solutions', 'Python', 'Backend'],
+    tags: ['Social Media' , 'UX/UI', 'Design Thinking'],
     social: { linkedin: '#', github: '#' }
   }
 ];

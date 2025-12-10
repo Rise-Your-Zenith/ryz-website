@@ -5,7 +5,6 @@ import Benefits from './sections/Benefits'; // <--- Importar aqui
 import Founders from './sections/Founders';
 import Process from './components/Process';
 import Portfolio from './sections/Portfolio';
-import Pricing from './components/Pricing';
 import Contact from './sections/Contact';
 import WhatsAppBtn from './components/WhatsAppBtn';
 
@@ -44,7 +43,6 @@ function App() {
         <Founders />
         <Process />
         <Portfolio />
-        <Pricing />
         <Contact />
       </main>
       <WhatsAppBtn />
